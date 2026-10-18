@@ -1,10 +1,20 @@
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
 
 android {
-    // Baaki existing android settings ko rehne dena
+    namespace = "com.mystic.browser"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.mystic.browser"
+        minSdk = 23
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
