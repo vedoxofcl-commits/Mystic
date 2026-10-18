@@ -4,8 +4,7 @@ name: Build Mystic Android APK
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build:
@@ -21,15 +20,13 @@ jobs:
           distribution: temurin
           java-version: "17"
 
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
       - name: Build Android APK
-        run: |
-          chmod +x gradlew 2>/dev/null || true
-          if [ -f gradlew ]; then
-            ./gradlew assembleDebug
-          else
-            echo "Gradle wrapper missing; cannot build yet."
-            exit 1
-          fi
+        run: gradle assembleDebug
 
       - name: Upload APK
         if: success()
