@@ -49,7 +49,7 @@ class MainActivity : Activity() {
             setHintTextColor(Color.LTGRAY)
             setTextColor(Color.WHITE)
             textSize = 15f
-            singleLine = true
+            setSingleLine(true)
             imeOptions = EditorInfo.IME_ACTION_GO
             setBackgroundColor(Color.TRANSPARENT)
             setPadding(12, 4, 6, 4)
